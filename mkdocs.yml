@@ -1,0 +1,25 @@
+### 🛠 Modifier la navigation dans `mkdocs.yml`
+
+site_name: TP API REST
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.footer
+  palette:
+    - scheme: default
+      primary: red
+      toggle:
+        icon: material/weather-night
+        name: Basculer en mode sombre
+    - scheme: slate
+      primary: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Basculer en mode clair
+
+nav:
+  - Enoncé: index.md
+  - Le langage JSON: json.md
+  - CORS: cors.md
+  - Le langage Markdown: markdown.md
