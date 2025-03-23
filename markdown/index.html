@@ -1,0 +1,982 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cors/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Le langage Markdown - TP API REST</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-au-langage-markdown" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="TP API REST" class="md-header__button md-logo" aria-label="TP API REST" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TP API REST
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Le langage Markdown
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Basculer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Basculer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Basculer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Basculer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TP API REST" class="md-nav__button md-logo" aria-label="TP API REST" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TP API REST
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enoncé
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le langage JSON
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CORS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Le langage Markdown
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Le langage Markdown
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-quest-ce-que-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Qu'est-ce que Markdown ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Qu&#39;est-ce que Markdown ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-role-de-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Rôle de Markdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-fonctionnement-de-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Fonctionnement de Markdown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-syntaxe-de-base-de-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Syntaxe de base de Markdown
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Syntaxe de base de Markdown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-titres" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Titres
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-mise-en-forme-du-texte" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Mise en forme du texte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-listes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Listes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-liens-et-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Liens et images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-blocs-de-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Blocs de code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-citations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Citations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-tableaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Tableaux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-syntaxe-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Syntaxe avancée
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Syntaxe avancée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-liens-avec-titres" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Liens avec titres
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-images-avec-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Images avec dimensions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-liens-internes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Liens internes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-blocs-de-code-specifiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Blocs de code spécifiques
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-cases-a-cocher-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Cases à cocher (Checklist)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-notes-de-bas-de-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 Notes de bas de page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-separateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7 Séparateurs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-quest-ce-que-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Qu'est-ce que Markdown ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Qu&#39;est-ce que Markdown ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-role-de-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Rôle de Markdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-fonctionnement-de-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Fonctionnement de Markdown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-syntaxe-de-base-de-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Syntaxe de base de Markdown
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Syntaxe de base de Markdown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-titres" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Titres
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-mise-en-forme-du-texte" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Mise en forme du texte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-listes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Listes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-liens-et-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Liens et images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-blocs-de-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Blocs de code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-citations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Citations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-tableaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Tableaux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-syntaxe-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Syntaxe avancée
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Syntaxe avancée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-liens-avec-titres" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Liens avec titres
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-images-avec-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Images avec dimensions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-liens-internes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Liens internes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-blocs-de-code-specifiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Blocs de code spécifiques
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-cases-a-cocher-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Cases à cocher (Checklist)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-notes-de-bas-de-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 Notes de bas de page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-separateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7 Séparateurs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introduction-au-langage-markdown">Introduction au langage Markdown</h1>
+<h2 id="1-quest-ce-que-markdown">1. Qu'est-ce que Markdown ?</h2>
+<p>Markdown est un langage de balisage léger conçu pour formater du texte de manière simple et intuitive. Il permet de structurer et styliser du texte en utilisant une syntaxe facile à lire et à écrire. Son principal avantage est qu'il peut être converti en HTML sans nécessiter de connaissances avancées en développement web.</p>
+<h3 id="11-role-de-markdown">1.1 Rôle de Markdown</h3>
+<p>Markdown est couramment utilisé pour :
+- La documentation technique (ex. : GitHub, GitLab, etc.).
+- La rédaction d'articles et de blogs.
+- La rédaction de fichiers README.
+- La mise en forme des notes et contenus éducatifs.</p>
+<h3 id="12-fonctionnement-de-markdown">1.2 Fonctionnement de Markdown</h3>
+<p>Le texte écrit en Markdown peut être lu directement sans mise en forme, mais il peut aussi être converti automatiquement en HTML ou affiché avec un style particulier dans des outils compatibles comme VS Code, GitHub, ou des générateurs de site statique.</p>
+<hr />
+<h2 id="2-syntaxe-de-base-de-markdown">2. Syntaxe de base de Markdown</h2>
+<h3 id="21-titres">2.1 Titres</h3>
+<p>Les titres sont définis en utilisant des <code>#</code>. Plus le nombre de <code>#</code> est grand, plus le titre est petit.</p>
+<pre><code class="language-markdown"># Titre de niveau 1
+## Titre de niveau 2
+### Titre de niveau 3
+#### Titre de niveau 4
+</code></pre>
+<h3 id="22-mise-en-forme-du-texte">2.2 Mise en forme du texte</h3>
+<p>Markdown permet de mettre en forme le texte facilement.</p>
+<ul>
+<li><strong>Gras</strong> : <code>**Texte en gras**</code> → <strong>Texte en gras</strong></li>
+<li><em>Italique</em> : <code>*Texte en italique*</code> → <em>Texte en italique</em></li>
+<li>~~Barré~~ : <code>~~Texte barré~~</code> → ~~Texte barré~~</li>
+</ul>
+<h3 id="23-listes">2.3 Listes</h3>
+<p><strong>Listes non ordonnées :</strong></p>
+<pre><code class="language-markdown">- Élément 1
+- Élément 2
+  - Sous-élément 2.1
+  - Sous-élément 2.2
+</code></pre>
+<p>Affichage :
+- Élément 1
+- Élément 2
+  - Sous-élément 2.1
+  - Sous-élément 2.2</p>
+<p><strong>Listes ordonnées :</strong></p>
+<pre><code class="language-markdown">1. Premier élément
+2. Deuxième élément
+3. Troisième élément
+</code></pre>
+<p>Affichage :
+1. Premier élément
+2. Deuxième élément
+3. Troisième élément</p>
+<h3 id="24-liens-et-images">2.4 Liens et images</h3>
+<p><strong>Liens :</strong></p>
+<pre><code class="language-markdown">[Nom du lien](https://exemple.com)
+</code></pre>
+<p>Affichage : <a href="https://exemple.com">Nom du lien</a></p>
+<p><strong>Images :</strong></p>
+<pre><code class="language-markdown">![Texte alternatif](https://exemple.com/image.jpg)
+</code></pre>
+<h3 id="25-blocs-de-code">2.5 Blocs de code</h3>
+<p>Markdown permet d'afficher du code en utilisant des accents graves <code>```</code>.</p>
+<pre><code class="language-markdown">```php
+&lt;?php
+echo &quot;Bonjour, Markdown !&quot;;
+</code></pre>
+<pre><code>
+Affichage :
+
+```php
+&lt;?php
+echo &quot;Bonjour, Markdown !&quot;;
+</code></pre>
+<h3 id="26-citations">2.6 Citations</h3>
+<p>Les citations se créent avec le <code>&gt;</code>.</p>
+<pre><code class="language-markdown">&gt; Ceci est une citation en Markdown.
+</code></pre>
+<p>Affichage :</p>
+<blockquote>
+<p>Ceci est une citation en Markdown.</p>
+</blockquote>
+<h3 id="27-tableaux">2.7 Tableaux</h3>
+<p>Markdown permet de créer des tableaux simplement.</p>
+<pre><code class="language-markdown">| Nom     | Âge | Métier      |
+|---------|----|------------|
+| Alice   | 25 | Développeuse |
+| Bob     | 30 | Designer    |
+</code></pre>
+<p>Affichage :</p>
+<table>
+<thead>
+<tr>
+<th>Nom</th>
+<th>Âge</th>
+<th>Métier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>25</td>
+<td>Développeuse</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>30</td>
+<td>Designer</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-syntaxe-avancee">3. Syntaxe avancée</h2>
+<p>Markdown offre des fonctionnalités avancées permettant d'améliorer la mise en forme et la structuration des documents.</p>
+<h3 id="31-liens-avec-titres">3.1 Liens avec titres</h3>
+<p>Il est possible d'ajouter un titre sur un lien qui s'affichera au survol :</p>
+<pre><code class="language-markdown">[Nom du lien](https://exemple.com &quot;Titre du lien&quot;)
+</code></pre>
+<p>Affichage : <a href="https://exemple.com" title="Titre du lien">Nom du lien</a></p>
+<h3 id="32-images-avec-dimensions">3.2 Images avec dimensions</h3>
+<p>On peut redimensionner une image en combinant du HTML :</p>
+<pre><code class="language-markdown">&lt;img src=&quot;https://exemple.com/image.jpg&quot; alt=&quot;Texte alternatif&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;
+</code></pre>
+<h3 id="33-liens-internes">3.3 Liens internes</h3>
+<p>Pour référencer une section interne du document, il suffit d'utiliser :</p>
+<pre><code class="language-markdown">[Aller à la section 2](#2-syntaxe-de-base-de-markdown)
+</code></pre>
+<h3 id="34-blocs-de-code-specifiques">3.4 Blocs de code spécifiques</h3>
+<p>Il est possible d’indiquer le langage de programmation pour un meilleur rendu syntaxique :</p>
+<pre><code class="language-markdown">```javascript
+console.log(&quot;Bonjour, Markdown !&quot;);
+</code></pre>
+<pre><code>
+Affichage :
+
+```javascript
+console.log(&quot;Bonjour, Markdown !&quot;);
+</code></pre>
+<h3 id="35-cases-a-cocher-checklist">3.5 Cases à cocher (Checklist)</h3>
+<p>Markdown permet de créer des listes avec des cases à cocher (pratique pour les TODOs) :</p>
+<pre><code class="language-markdown">- [x] Tâche terminée
+- [ ] Tâche en cours
+- [ ] Tâche à faire
+</code></pre>
+<p>Affichage :
+- [x] Tâche terminée
+- [ ] Tâche en cours
+- [ ] Tâche à faire</p>
+<h3 id="36-notes-de-bas-de-page">3.6 Notes de bas de page</h3>
+<p>Markdown prend en charge les notes de bas de page :</p>
+<pre><code class="language-markdown">Ceci est un texte avec une note[^1].
+
+[^1]: Ceci est la note de bas de page.
+</code></pre>
+<p>Affichage :
+Ceci est un texte avec une note[^1].</p>
+<p>[^1]: Ceci est la note de bas de page.</p>
+<h3 id="37-separateurs">3.7 Séparateurs</h3>
+<p>On peut ajouter des séparateurs horizontaux pour structurer un document :</p>
+<pre><code class="language-markdown">---
+</code></pre>
+<hr />
+<h2 id="4-conclusion">4. Conclusion</h2>
+<p>Markdown est un langage simple et puissant permettant de structurer du texte de manière efficace. Il est largement utilisé dans le monde du développement et de la documentation. En maîtrisant sa syntaxe de base et avancée, vous pourrez rapidement rédiger du contenu clair et bien formaté sans effort.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <div style="text-align: center; font-size: 1.2em">
+  <p>© 2025 BTS SIO - Lycée Pergaud – Franck LAMY</p>
+ </div>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

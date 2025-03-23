@@ -1,0 +1,929 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="json/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>TP API REST</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tp-developpement-dune-api-rest-pour-une-application-de-cinema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="TP API REST" class="md-header__button md-logo" aria-label="TP API REST" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TP API REST
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enoncé
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Basculer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Basculer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Basculer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Basculer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="TP API REST" class="md-nav__button md-logo" aria-label="TP API REST" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TP API REST
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Enoncé
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Enoncé
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectif
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base de données
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Base de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-des-tables-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure des tables principales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-a-implementer" class="md-nav__link">
+    <span class="md-ellipsis">
+      API à implémenter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API à implémenter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-liste-des-films" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Liste des films
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-details-dun-film" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Détails d'un film
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-liste-des-seances-dun-film" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Liste des séances d'un film
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-de-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application de test
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Application de test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-application-de-test-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Application de test PHP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-application-de-test-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Application de test JavaScript
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologies-a-utiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies à utiliser
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consignes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consignes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementations-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémentations disponibles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criteres-devaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critères d'évaluation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#livrable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Livrable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le langage JSON
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CORS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le langage Markdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectif
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base de données
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Base de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-des-tables-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure des tables principales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-a-implementer" class="md-nav__link">
+    <span class="md-ellipsis">
+      API à implémenter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API à implémenter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-liste-des-films" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Liste des films
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-details-dun-film" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Détails d'un film
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-liste-des-seances-dun-film" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Liste des séances d'un film
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-de-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application de test
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Application de test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-application-de-test-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Application de test PHP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-application-de-test-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Application de test JavaScript
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologies-a-utiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies à utiliser
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consignes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consignes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementations-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémentations disponibles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criteres-devaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critères d'évaluation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#livrable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Livrable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tp-developpement-dune-api-rest-pour-une-application-de-cinema">TP : Développement d'une API REST pour une application de cinéma</h1>
+<h2 id="contexte">Contexte</h2>
+<p>Dans le cadre de ce travail pratique, vous allez développer une API REST pour une application web de cinéma. Cette API servira de backend pour une application web permettant aux utilisateurs de consulter les films à l'affiche et leurs séances.</p>
+<h2 id="objectif">Objectif</h2>
+<p>Développer une API REST fonctionnelle qui permettra :
+- La récupération de la liste des films
+- La consultation des détails d'un film spécifique
+- La gestion des séances de cinéma</p>
+<h2 id="base-de-donnees">Base de données</h2>
+<p>Une base de données MySQL nommée <code>db_cinematic</code> a été préparée avec les tables suivantes :
+- <code>genres</code> : catégories de films
+- <code>films</code> : informations sur les films
+- <code>seances</code> : séances de projection des films
+- <code>utilisateurs</code> et <code>roles</code> : gestion des utilisateurs (non utilisés dans ce TP)</p>
+<p>Le script de création de la base de données (<code>schema.sql</code>) est fourni à la racine du projet.</p>
+<h3 id="structure-des-tables-principales">Structure des tables principales</h3>
+<p><strong>Table <code>genres</code></strong> :</p>
+<pre><code class="language-sql">CREATE TABLE genres (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL
+)
+</code></pre>
+<p><strong>Table <code>films</code></strong> :</p>
+<pre><code class="language-sql">CREATE TABLE films (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(100) NOT NULL,
+    realisateur VARCHAR(100) NOT NULL,
+    duree TIME NOT NULL,
+    date_sortie DATE NOT NULL,
+    affiche VARCHAR(255) NOT NULL,
+    genre_id INT NOT NULL,
+    description TEXT NOT NULL,
+    FOREIGN KEY (genre_id) REFERENCES genres(id)
+)
+</code></pre>
+<p><strong>Table <code>seances</code></strong> :</p>
+<pre><code class="language-sql">CREATE TABLE seances (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    film_id INT NOT NULL,
+    date DATE NOT NULL,
+    heure TIME NOT NULL,
+    places_disponibles INT NOT NULL DEFAULT 100,
+    FOREIGN KEY (film_id) REFERENCES films(id)
+)
+</code></pre>
+<h2 id="api-a-implementer">API à implémenter</h2>
+<p>Vous devez implémenter une API REST répondant aux endpoints suivants :</p>
+<h3 id="1-liste-des-films">1. Liste des films</h3>
+<p><strong>Endpoint :</strong> <code>GET /api/films</code></p>
+<p><strong>Réponse attendue :</strong></p>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;titre&quot;: &quot;Dune&quot;,
+      &quot;realisateur&quot;: &quot;Denis Villeneuve&quot;,
+      &quot;duree&quot;: &quot;02:35:00&quot;,
+      &quot;date_sortie&quot;: &quot;2021-10-22&quot;,
+      &quot;affiche&quot;: &quot;https://image.tmdb.org/t/p/w500/8c4a8kE7PizaGQQnditMmI1xbRp.jpg&quot;,
+      &quot;genre_id&quot;: 2,
+      &quot;description&quot;: &quot;...&quot;,
+      &quot;genre_nom&quot;: &quot;Science-fiction&quot;
+    },
+    {...}
+  ]
+}
+</code></pre>
+<h3 id="2-details-dun-film">2. Détails d'un film</h3>
+<p><strong>Endpoint :</strong> <code>GET /api/films/:id</code></p>
+<p><strong>Réponse attendue :</strong></p>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 1,
+    &quot;titre&quot;: &quot;Dune&quot;,
+    &quot;realisateur&quot;: &quot;Denis Villeneuve&quot;,
+    &quot;duree&quot;: &quot;02:35:00&quot;,
+    &quot;date_sortie&quot;: &quot;2021-10-22&quot;,
+    &quot;affiche&quot;: &quot;https://image.tmdb.org/t/p/w500/8c4a8kE7PizaGQQnditMmI1xbRp.jpg&quot;,
+    &quot;genre_id&quot;: 2,
+    &quot;description&quot;: &quot;...&quot;,
+    &quot;genre_nom&quot;: &quot;Science-fiction&quot;
+  }
+}
+</code></pre>
+<h3 id="3-liste-des-seances-dun-film">3. Liste des séances d'un film</h3>
+<p><strong>Endpoint :</strong> <code>GET /api/films/:id/seances</code></p>
+<p><strong>Réponse attendue :</strong></p>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;film_id&quot;: 1,
+      &quot;date&quot;: &quot;2025-02-10&quot;,
+      &quot;heure&quot;: &quot;18:00:00&quot;,
+      &quot;places_disponibles&quot;: 100
+    },
+    {...}
+  ]
+}
+</code></pre>
+<h2 id="application-de-test">Application de test</h2>
+<p>Deux applications de test sont fournies pour vous permettre de tester votre API :</p>
+<h3 id="1-application-de-test-php">1. Application de test PHP</h3>
+<p>Une application de test PHP (<code>api-rest-test</code>) est fournie pour vous permettre de tester votre API. Cette application est une interface web simple qui utilise la fonction <code>file_get_contents()</code> pour effectuer des requêtes HTTP vers votre API REST.</p>
+<p>L'application affiche la liste des films et permet de consulter les détails d'un film en communiquant directement avec votre API.</p>
+<p>Pour utiliser cette application :   <br />
+1. Démarrez votre serveur API sur le port 8000  <br />
+1. Ouvrez les fichiers <code>index.php</code> et <code>details.php</code> dans un serveur web (Apache, XAMPP, etc.)    <br />
+2. Vous devriez voir s'afficher la liste des films et pouvoir consulter leurs détails      </p>
+<h3 id="2-application-de-test-javascript">2. Application de test JavaScript</h3>
+<p>Une seconde application de test (<code>api-rest-test-javascript</code>) utilisant JavaScript pour faire des appels AJAX vers votre API est également disponible. Cette application vous permettra de tester la gestion des requêtes CORS par votre API.</p>
+<p>Pour utiliser cette application :  <br />
+1. Démarrez votre serveur API sur le port 8000   <br />
+2. Ouvrez le fichier <code>index.html</code> directement dans un navigateur    <br />
+3. L'application effectuera des requêtes vers votre API et affichera les résultats      </p>
+<p><strong>Note importante :</strong> Pour que l'application JavaScript fonctionne correctement, votre API doit être configurée pour gérer les requêtes CORS en incluant les en-têtes appropriés tels que <code>Access-Control-Allow-Origin</code>, <code>Access-Control-Allow-Methods</code>, et <code>Access-Control-Allow-Headers</code>.</p>
+<h2 id="technologies-a-utiliser">Technologies à utiliser</h2>
+<p>Vous êtes libre de choisir la technologie que vous souhaitez pour développer cette API. </p>
+<ul>
+<li>Express.js (Node.js) - <a href="https://expressjs.com/fr/">https://expressjs.com/fr/</a></li>
+<li>Fastify (Node.js) - <a href="https://fastify.dev/">https://fastify.dev/</a></li>
+<li>Koa.js (Node.js) - <a href="https://koajs.com/">https://koajs.com/</a></li>
+<li>Hono (Node.js/Deno/Bun) - <a href="https://hono.dev/">https://hono.dev/</a></li>
+<li>Nitro (Node.js) - <a href="https://nitro.unjs.io/">https://nitro.unjs.io/</a></li>
+<li>Python avec Flask - <a href="https://flask.palletsprojects.com/">https://flask.palletsprojects.com/</a> </li>
+<li>PHP avec FlightPHP - <a href="https://flightphp.com/">https://flightphp.com/</a></li>
+</ul>
+<h2 id="consignes">Consignes</h2>
+<ol>
+<li>Créez un nouveau dossier pour votre projet</li>
+<li>Mettez en place l'environnement de développement avec la technologie de votre choix</li>
+<li>Implémentez la connexion à la base de données</li>
+<li>Développez les endpoints requis</li>
+<li>Testez votre API avec l'application de test fournie</li>
+<li>Documentez votre code et votre API</li>
+</ol>
+<h2 id="implementations-disponibles">Implémentations disponibles</h2>
+<p>Des exemples d'implémentation sont disponibles dans les dossiers suivants :</p>
+<ul>
+<li><code>api-rest-express</code> : Implémentation avec Express.js</li>
+<li><code>api-rest-fastify</code> : Implémentation avec Fastify</li>
+<li><code>api-rest-koa</code> : Implémentation avec Koa.js</li>
+<li><code>api-rest-hono</code> : Implémentation avec Hono</li>
+<li><code>api-rest-nitro</code> : Implémentation avec Nitro</li>
+<li><code>api-rest-python</code> : Implémentation avec Flask</li>
+<li><code>api-rest-flight</code> : Implémentation avec FlightPHP</li>
+</ul>
+<p>Chaque dossier contient :        </p>
+<ul>
+<li>Le code source complet de l'API         </li>
+<li>Un fichier README.md avec les instructions d'installation et d'utilisation    </li>
+<li>Les dépendances nécessaires    </li>
+</ul>
+<p>Pour utiliser une implémentation :     </p>
+<ol>
+<li>Choisissez le dossier correspondant à la technologie souhaitée    </li>
+<li>Suivez les instructions du README.md pour l'installation et le démarrage    </li>
+<li>Testez l'API avec l'application de test fournie    </li>
+</ol>
+<h2 id="criteres-devaluation">Critères d'évaluation</h2>
+<ul>
+<li>Fonctionnalité : l'API répond correctement aux endpoints définis   </li>
+<li>Structure du code : organisation, lisibilité, modularité    </li>
+<li>Gestion des erreurs : retours d'erreurs appropriés    </li>
+<li>Documentation : clarté des commentaires et de la documentation de l'API    </li>
+<li>Respect des principes REST    </li>
+</ul>
+<h2 id="livrable">Livrable</h2>
+<p>Un dépôt Git contenant :   </p>
+<ul>
+<li>Le code source de votre API    </li>
+<li>Un fichier README.md expliquant comment installer et démarrer votre API   </li>
+<li>Le script de création de la base de données utilisée    </li>
+</ul>
+<p>Bon développement ! </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <div style="text-align: center; font-size: 1.2em">
+  <p>© 2025 BTS SIO - Lycée Pergaud – Franck LAMY</p>
+ </div>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,875 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../json/">
+      
+      
+        <link rel="next" href="../markdown/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>CORS - TP API REST</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cors-cross-origin-resource-sharing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="TP API REST" class="md-header__button md-logo" aria-label="TP API REST" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TP API REST
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CORS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Basculer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Basculer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Basculer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Basculer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TP API REST" class="md-nav__button md-logo" aria-label="TP API REST" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TP API REST
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enoncé
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le langage JSON
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CORS
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    CORS
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quest-ce-que-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Qu'est-ce que CORS ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-quoi-sert-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      À quoi sert CORS ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="À quoi sert CORS ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-probleme-de-la-same-origin-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le problème de la "Same-Origin Policy"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-avantages-de-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Les avantages de CORS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-fonctionne-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment fonctionne CORS ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comment fonctionne CORS ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-mecanisme-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le mécanisme principal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-cors-ne-sapplique-quaux-requetes-initiees-par-le-navigateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important : CORS ne s'applique qu'aux requêtes initiées par le navigateur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-requetes-preliminaires-preflight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Les requêtes préliminaires (Preflight)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principaux-en-tetes-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principaux en-têtes CORS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-mettre-en-uvre-cors-dans-votre-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment mettre en œuvre CORS dans votre API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comment mettre en œuvre CORS dans votre API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avec-nodejs-et-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avec Node.js et Express
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-nodejs-et-fastify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avec Node.js et Fastify
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-hono-nodejsdenobun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avec Hono (Node.js/Deno/Bun)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-php-comme-dans-flight-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avec PHP (comme dans Flight PHP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bonnes pratiques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le langage Markdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quest-ce-que-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Qu'est-ce que CORS ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-quoi-sert-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      À quoi sert CORS ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="À quoi sert CORS ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-probleme-de-la-same-origin-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le problème de la "Same-Origin Policy"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-avantages-de-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Les avantages de CORS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-fonctionne-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment fonctionne CORS ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comment fonctionne CORS ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-mecanisme-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le mécanisme principal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-cors-ne-sapplique-quaux-requetes-initiees-par-le-navigateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important : CORS ne s'applique qu'aux requêtes initiées par le navigateur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-requetes-preliminaires-preflight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Les requêtes préliminaires (Preflight)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principaux-en-tetes-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principaux en-têtes CORS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-mettre-en-uvre-cors-dans-votre-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment mettre en œuvre CORS dans votre API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comment mettre en œuvre CORS dans votre API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avec-nodejs-et-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avec Node.js et Express
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-nodejs-et-fastify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avec Node.js et Fastify
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-hono-nodejsdenobun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avec Hono (Node.js/Deno/Bun)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-php-comme-dans-flight-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avec PHP (comme dans Flight PHP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bonnes pratiques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cors-cross-origin-resource-sharing">CORS (Cross-Origin Resource Sharing)</h1>
+<h2 id="quest-ce-que-cors">Qu'est-ce que CORS ?</h2>
+<p>CORS (Cross-Origin Resource Sharing) est un mécanisme de sécurité implémenté par les navigateurs web. Il permet à un serveur d'indiquer quels autres domaines (origines) sont autorisés à accéder à ses ressources. Cette technologie est essentielle dans le développement d'applications web modernes, en particulier pour les API REST.</p>
+<h2 id="a-quoi-sert-cors">À quoi sert CORS ?</h2>
+<h3 id="le-probleme-de-la-same-origin-policy">Le problème de la "Same-Origin Policy"</h3>
+<p>Par défaut, les navigateurs web appliquent une politique de sécurité appelée "Same-Origin Policy" (Politique de même origine). Cette politique empêche une page web d'effectuer des requêtes AJAX/fetch vers un domaine différent de celui qui a servi la page.</p>
+<p>Par exemple :
+- Si votre site web est hébergé sur <code>https://monsite.com</code>
+- Et que votre API est hébergée sur <code>https://api.monsite.com</code>
+- Le navigateur bloquera par défaut les requêtes de votre site vers votre API</p>
+<p>CORS a été créé pour résoudre ce problème en permettant au serveur de spécifier explicitement quels domaines peuvent accéder à ses ressources.</p>
+<h3 id="les-avantages-de-cors">Les avantages de CORS</h3>
+<ul>
+<li>Permet le développement d'applications décentralisées (frontend et backend séparés)</li>
+<li>Offre une couche de sécurité contrôlée</li>
+<li>Facilite l'utilisation d'API tierces</li>
+<li>Permet de partager des ressources entre différents domaines de manière sécurisée</li>
+</ul>
+<h2 id="comment-fonctionne-cors">Comment fonctionne CORS ?</h2>
+<h3 id="le-mecanisme-principal">Le mécanisme principal</h3>
+<ol>
+<li><strong>Requête du client</strong> : Lorsqu'une requête est effectuée vers un autre domaine (origine), généralement via JavaScript (fetch, XMLHttpRequest, axios), mais aussi par d'autres technologies web comme WebAssembly, applets Java ou plugins de navigateur</li>
+<li><strong>En-têtes spéciaux</strong> : Le navigateur ajoute automatiquement des en-têtes CORS à la requête</li>
+<li><strong>Vérification par le serveur</strong> : Le serveur examine ces en-têtes et décide s'il autorise la requête</li>
+<li><strong>Réponse avec en-têtes CORS</strong> : Le serveur répond avec des en-têtes CORS spécifiant ce qui est autorisé</li>
+<li><strong>Décision du navigateur</strong> : Le navigateur analyse ces en-têtes et permet ou bloque la réponse</li>
+</ol>
+<h3 id="important-cors-ne-sapplique-quaux-requetes-initiees-par-le-navigateur">Important : CORS ne s'applique qu'aux requêtes initiées par le navigateur</h3>
+<p>Il est crucial de comprendre que CORS est une restriction imposée par les navigateurs web uniquement. Les requêtes serveur-à-serveur ne sont pas concernées par CORS :</p>
+<ul>
+<li>Les requêtes effectuées côté serveur (PHP avec <code>curl</code>, <code>file_get_contents</code>, Guzzle, Python avec <code>requests</code>, Node.js avec <code>axios</code> côté serveur, etc.) ne sont pas soumises aux restrictions CORS</li>
+<li>Vous pouvez appeler n'importe quelle API depuis votre code backend sans vous soucier de CORS</li>
+<li>CORS est uniquement une préoccupation pour le code exécuté dans le navigateur de l'utilisateur</li>
+</ul>
+<p>Par exemple, si votre application PHP doit consommer une API externe :</p>
+<pre><code class="language-php">// Cette requête PHP vers une API externe ignore complètement CORS
+$response = file_get_contents('https://api.externe.com/data');
+// ou avec cURL
+$ch = curl_init('https://api.externe.com/data');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+</code></pre>
+<h3 id="les-requetes-preliminaires-preflight">Les requêtes préliminaires (Preflight)</h3>
+<p>Pour les requêtes complexes (PUT, DELETE, avec en-têtes personnalisés, etc.), le navigateur envoie d'abord une requête "preflight" avec la méthode HTTP OPTIONS pour demander au serveur quelles options sont autorisées avant d'envoyer la requête réelle.</p>
+<h3 id="principaux-en-tetes-cors">Principaux en-têtes CORS</h3>
+<ul>
+<li><code>Access-Control-Allow-Origin</code> : Spécifie quels domaines peuvent accéder aux ressources</li>
+<li><code>Access-Control-Allow-Methods</code> : Indique les méthodes HTTP autorisées (GET, POST, PUT, DELETE, etc.)</li>
+<li><code>Access-Control-Allow-Headers</code> : Définit quels en-têtes HTTP peuvent être utilisés</li>
+<li><code>Access-Control-Allow-Credentials</code> : Indique si la requête peut inclure des cookies</li>
+</ul>
+<h2 id="comment-mettre-en-uvre-cors-dans-votre-api">Comment mettre en œuvre CORS dans votre API</h2>
+<h3 id="avec-nodejs-et-express">Avec Node.js et Express</h3>
+<pre><code class="language-javascript">const express = require('express');
+const cors = require('cors');
+const app = express();
+
+// Utilisation simple avec configuration par défaut
+app.use(cors());
+
+// OU avec une configuration personnalisée
+app.use(cors({
+  origin: 'https://monsite.com',  // Domaine autorisé
+  methods: ['GET', 'POST'],       // Méthodes autorisées
+  allowedHeaders: ['Content-Type', 'Authorization']  // En-têtes autorisés
+}));
+</code></pre>
+<h3 id="avec-nodejs-et-fastify">Avec Node.js et Fastify</h3>
+<pre><code class="language-javascript">const fastify = require('fastify')({ logger: true });
+const cors = require('@fastify/cors');
+
+// Configuration simple
+fastify.register(cors, {
+  origin: true  // Autorise toutes les origines
+});
+
+// OU avec une configuration personnalisée
+fastify.register(cors, {
+  origin: ['https://monsite.com', 'https://autre-site.com'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+});
+</code></pre>
+<h3 id="avec-hono-nodejsdenobun">Avec Hono (Node.js/Deno/Bun)</h3>
+<pre><code class="language-javascript">import { Hono } from 'hono';
+const app = new Hono();
+
+// Middleware CORS personnalisé
+app.use('*', async (c, next) =&gt; {
+  c.header('Access-Control-Allow-Origin', '*');
+  c.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  c.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  if (c.req.method === 'OPTIONS') {
+    return c.text('', 204);
+  }
+
+  await next();
+});
+</code></pre>
+<h3 id="avec-php-comme-dans-flight-php">Avec PHP (comme dans Flight PHP)</h3>
+<pre><code class="language-php">// Configuration CORS
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+header('Content-Type: application/json');
+
+// Gestion des requêtes OPTIONS (preflight)
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  header('HTTP/1.1 200 OK');
+  exit();
+}
+</code></pre>
+<h2 id="bonnes-pratiques">Bonnes pratiques</h2>
+<ol>
+<li><strong>Ne pas utiliser <code>*</code> en production</strong> : En production, spécifiez précisément les domaines autorisés plutôt que d'utiliser <code>*</code> (toutes les origines)</li>
+<li><strong>Limiter les méthodes HTTP</strong> : N'autorisez que les méthodes dont votre API a besoin</li>
+<li><strong>Restreindre les en-têtes</strong> : Limitez les en-têtes autorisés à ceux nécessaires pour votre application</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>CORS est un mécanisme essentiel pour le développement d'API REST et d'applications web modernes. Il permet de contourner les restrictions de la politique de même origine tout en maintenant un niveau de sécurité approprié. En configurant correctement CORS dans votre API, vous permettez à votre frontend d'interagir avec votre backend même s'ils sont hébergés sur des domaines différents.</p>
+<p>En comprenant ce mécanisme, vous serez en mesure de déboguer efficacement les problèmes liés à CORS et de configurer correctement votre API pour qu'elle soit accessible depuis vos applications client. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <div style="text-align: center; font-size: 1.2em">
+  <p>© 2025 BTS SIO - Lycée Pergaud – Franck LAMY</p>
+ </div>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
